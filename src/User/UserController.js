@@ -46,43 +46,49 @@ class UserController extends React.Component {
             headers: {'Content-Type': 'application/json'},
             body:
                 JSON.stringify({
-                "name": this.state.name,
-                "surname": this.state.surname,
-                "height": parseInt( this.state.height),
-                "wheight": parseFloat(this.state.weight)
-            })
+                    "name": this.state.name,
+                    "surname": this.state.surname,
+                    "height": parseInt(this.state.height),
+                    "wheight": parseFloat(this.state.weight)
+                })
 
         })
     }
 
     getData = () => {
-        axios.get('http://localhost:8080/person?surname=Mustermann&name=${this.state.name}&weight=60&height=160')
+        axios.get('http://localhost:8080/person?surname=' + this.state.surname + '&name=' + this.state.name + '&weight=' + this.state.weight + '&height=' + this.state.height)
             .then(response => this.setState({finalValue: response.data.name}))
     }
+
     addUser = () => {
-        this.postData();
         this.getData();
-        alert("Benutzer hinzugefügt" + this.state.finalValue);
+        // this.postData();
+
         this.clearAll();
+    }
+
+    showUser = ()=>{
+        alert("Benutzer hinzugefügt " + this.state.finalValue);
     }
 
     render() {
 
         return (
             <UserView className="View"
-                setName={this.setName}
-                setSurname={this.setSurname}
-                setWeight={this.setWeight}
-                setHeight={this.setHeight}
+                      setName={this.setName}
+                      setSurname={this.setSurname}
+                      setWeight={this.setWeight}
+                      setHeight={this.setHeight}
 
 
-                name={this.state.name}
-                surname={this.state.surname}
-                height={this.state.height}
-                weight={this.state.weight}
+                      name={this.state.name}
+                      surname={this.state.surname}
+                      height={this.state.height}
+                      weight={this.state.weight}
 
-                addUser={this.addUser}
-                shouldDisableSubmit={!this.state.name}
+                      addUser={this.addUser}
+                      showUser={this.showUser}
+                      shouldDisableSubmit={!this.state.name}
             />
         )
     }

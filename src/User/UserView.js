@@ -16,6 +16,7 @@ class UserView extends React.Component {
             weight,
 
             addUser,
+            showUser,
             shouldDisableSubmit
 
         } = this.props
@@ -35,6 +36,7 @@ class UserView extends React.Component {
                     inputValueHight={height}
 
                     onSubmit={addUser}
+                    onShow={showUser}
                     shouldDisableSubmit={shouldDisableSubmit}
 
                 />

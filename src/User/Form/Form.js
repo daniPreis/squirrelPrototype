@@ -16,6 +16,7 @@ class Form extends React.Component {
             inputValueHight,
 
             onSubmit,
+            onShow,
             shouldDisableSubmit
         } = this.props
 
@@ -51,9 +52,15 @@ class Form extends React.Component {
                 <br/>
                 <Button
                     onClick={onSubmit}
-                 //   disabled={shouldDisableSubmit}
+                   disabled={shouldDisableSubmit}
                     >
                     Erstellen
+                </Button>
+                <Button
+                    onClick={onShow}
+
+                >
+                    Anzeigen
                 </Button>
             </form>
         )
