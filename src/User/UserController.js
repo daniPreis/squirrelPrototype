@@ -46,10 +46,10 @@ class UserController extends React.Component {
             headers: {'Content-Type': 'application/json'},
             body:
                 JSON.stringify({
-                name: this.state.name,
-                surname: this.state.surname,
-                height: parseInt( this.state.height),
-                wheight: parseFloat(this.state.weight)
+                "name": this.state.name,
+                "surname": this.state.surname,
+                "height": parseInt( this.state.height),
+                "wheight": parseFloat(this.state.weight)
             })
 
         })
