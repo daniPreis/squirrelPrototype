@@ -44,15 +44,15 @@ class UserController extends React.Component {
         fetch('http://localhost:8080/person', {
             method: 'post',
             headers: {'Content-Type': 'application/json'},
-            body: {
-                "name": String(this.state.name),
-                "surname": String(this.state.surname),
-                "height": parseInt(this.state.height),
-                "weight": parseFloat(this.state.weight),
-            }
-        }).then(results =>{
-            return results.json();
-        });
+            body:
+                JSON.stringify({
+                name: this.state.name,
+                surname: this.state.surname,
+                height: parseInt( this.state.height),
+                wheight: parseFloat(this.state.weight)
+            })
+
+        })
     }
 
     getData = () => {
