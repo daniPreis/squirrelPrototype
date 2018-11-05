@@ -9,7 +9,7 @@ class Button extends React.Component {
                 className="btn"
                 type="button"
                 onClick={onClick}
-               // disabled={disabled}
+                disabled={disabled}
                 >
                 {this.props.children}
             </button>

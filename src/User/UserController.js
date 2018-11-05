@@ -69,7 +69,7 @@ class UserController extends React.Component {
     render() {
 
         return (
-            <UserView
+            <UserView className="View"
                 setName={this.setName}
                 setSurname={this.setSurname}
                 setWeight={this.setWeight}
@@ -82,7 +82,7 @@ class UserController extends React.Component {
                 weight={this.state.weight}
 
                 addUser={this.addUser}
-                // shouldDisableSubmit={!this.state.name}
+                shouldDisableSubmit={!this.state.name}
             />
         )
     }

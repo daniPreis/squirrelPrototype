@@ -5,7 +5,10 @@ import UserController from "./User/UserController";
 class App extends Component {
     render(){
       return(
-          <UserController/>
+          <div className="App">
+              <UserController className="App"/>
+          </div>
+
       )
     }
 }
