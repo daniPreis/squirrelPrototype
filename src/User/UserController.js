@@ -12,7 +12,7 @@ class UserController extends React.Component {
         height: '',
         weight: '',
 
-        finalValue:'',
+        finalValue: '',
     }
 
     setName = (e) => {
@@ -32,31 +32,33 @@ class UserController extends React.Component {
     }
 
 
-    clearAll = () =>{
-        this.setState({ name: '' })
-        this.setState({ surname: '' })
-        this.setState({ height: '' })
-        this.setState({ weight: '' })
+    clearAll = () => {
+        this.setState({name: ''})
+        this.setState({surname: ''})
+        this.setState({height: ''})
+        this.setState({weight: ''})
     }
 
-    postData = ()=>{
+    postData = () => {
+
         fetch('http://localhost:8080/person', {
             method: 'post',
-            headers: {'Content-Type':'application/json'},
+            headers: {'Content-Type': 'application/json'},
             body: {
-                "name": this.state.name,
-                "surname": this.state.surname,
-                "height": parseInt( this.state.height),
-                "wheight": parseFloat(this.state.weight),
+                "name": String(this.state.name),
+                "surname": String(this.state.surname),
+                "height": parseInt(this.state.height),
+                "weight": parseFloat(this.state.weight),
             }
+        }).then(results =>{
+            return results.json();
         });
     }
 
-    getData =()=>{
-        axios.get('http://localhost:8080/person?surname=Mustermann&name=Kerstin&weight=60&height=160')
+    getData = () => {
+        axios.get('http://localhost:8080/person?surname=Mustermann&name=${this.state.name}&weight=60&height=160')
             .then(response => this.setState({finalValue: response.data.name}))
     }
-
     addUser = () => {
         this.postData();
         this.getData();
@@ -80,9 +82,9 @@ class UserController extends React.Component {
                 weight={this.state.weight}
 
                 addUser={this.addUser}
-                shouldDisableSubmit={!this.state.name}
-    />
-    )
+                // shouldDisableSubmit={!this.state.name}
+            />
+        )
     }
 }
 
