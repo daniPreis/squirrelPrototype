@@ -54,13 +54,13 @@ class Form extends React.Component {
                     onClick={onSubmit}
                    disabled={shouldDisableSubmit}
                     >
-                    Erstellen
+                    Create
                 </Button>
                 <Button
                     onClick={onShow}
 
                 >
-                    Anzeigen
+                    Show
                 </Button>
             </form>
         )
