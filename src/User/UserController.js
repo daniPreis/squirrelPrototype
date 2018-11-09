@@ -4,8 +4,6 @@ import axios from 'axios';
 
 class UserController extends React.Component {
     state = {
-        pokemonImage: '1.gif',
-        pokemonName: '',
 
         name: '',
         surname: '',
